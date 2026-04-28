@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh; /* FIXED */
+    margin: 0;
+}
+        
+
+        .container {
+            text-align: center;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            padding: 8px;
+            width: 90%;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        #output {
+            margin-top: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration Form</h2>
+
+    <!-- IMPORTANT: correct ID -->
+    <form id="myForm">
+
+        Name:<br>
+        <input type="text" name="name"><br><br>
+
+        Age:<br>
+        <input type="number" name="age"><br><br>
+
+        Email:<br>
+        <input type="email" name="email"><br><br>
+
+        Password:<br>
+        <input type="password" name="password"><br><br>
+
+        Phone:<br>
+        <input type="tel" name="phone"><br><br>
+
+        Gender:<br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female<br><br>
+
+        Skills:<br>
+        <input type="checkbox" name="skills" value="HTML"> HTML
+        <input type="checkbox" name="skills" value="CSS"> CSS
+        <input type="checkbox" name="skills" value="JS"> JS<br><br>
+
+        Date of Birth:<br>
+        <input type="date" name="dob"><br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <!-- OUTPUT AREA -->
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault(); // stops page reload
+
+        // GET VALUES
+        let name = document.getElementsByName("name")[0].value;
+        let email = document.getElementsByName("email")[0].value;
+        let password = document.getElementsByName("password")[0].value;
+
+        // VALIDATION
+        if (name === "" || email === "" || password === "") {
+            alert("Please fill all fields");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters");
+            return;
+        }
+
+        // GET GENDER
+        let gender = "";
+        let genders = document.getElementsByName("gender");
+
+        for (let i = 0; i < genders.length; i++) {
+            if (genders[i].checked) {
+                gender = genders[i].value;
+            }
+        }
+
+        // GET SKILLS
+        let skills = "";
+        let skillList = document.getElementsByName("skills");
+
+        for (let i = 0; i < skillList.length; i++) {
+            if (skillList[i].checked) {
+                skills += skillList[i].value + " ";
+            }
+        }
+
+        // DISPLAY OUTPUT
+        document.getElementById("output").innerHTML =
+            "<h3>Registration Details</h3>" +
+            "Name: " + name + "<br>" +
+            "Email: " + email + "<br>" +
+            "Gender: " + gender + "<br>" +
+            "Skills: " + skills;
+
+        // RESET FORM
+        form.reset();
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+
