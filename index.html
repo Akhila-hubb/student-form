@@ -1,192 +1,447 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
 
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<head>
 
-/* BODY */
-body{
+    <meta charset="UTF-8">
 
-    font-family:'Poppins',sans-serif;
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    background:
-    linear-gradient(
-        135deg,
-        #2563eb,
-        #7c3aed,
-        #ec4899
-    );
+    <title>Student Registration Form</title>
 
-    display:flex;
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
-    justify-content:center;
+    <style>
 
-    align-items:center;
+        /* RESET */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
 
-    min-height:100vh;
+        /* BODY */
+        body{
 
-    padding:20px;
-}
+            font-family:'Poppins',sans-serif;
 
-/* CONTAINER */
-.container{
+            background:
+            linear-gradient(
+                135deg,
+                #2563eb,
+                #7c3aed,
+                #ec4899
+            );
 
-    width:100%;
+            display:flex;
 
-    max-width:500px;
+            justify-content:center;
 
-    text-align:center;
-}
+            align-items:center;
 
-/* TITLE */
-h2{
+            min-height:100vh;
 
-    color:white;
+            padding:20px;
+        }
 
-    margin-bottom:20px;
+        /* CONTAINER */
+        .container{
 
-    font-size:35px;
-}
+            width:100%;
 
-/* FORM */
-form{
+            max-width:500px;
 
-    background:
-    rgba(255,255,255,0.15);
+            text-align:center;
+        }
 
-    backdrop-filter:blur(12px);
+        /* TITLE */
+        h2{
 
-    padding:35px;
+            color:white;
 
-    border-radius:20px;
+            margin-bottom:20px;
 
-    box-shadow:
-    0px 8px 25px rgba(0,0,0,0.2);
+            font-size:35px;
+        }
 
-    text-align:left;
+        /* FORM */
+        .form-container{
 
-    color:white;
-}
+            background:
+            rgba(255,255,255,0.15);
 
-/* LABEL */
-label{
+            backdrop-filter:blur(12px);
 
-    font-weight:500;
-}
+            padding:35px;
 
-/* INPUT */
-input{
+            border-radius:20px;
 
-    width:100%;
+            box-shadow:
+            0px 8px 25px rgba(0,0,0,0.2);
 
-    padding:12px;
+            text-align:left;
 
-    margin-top:8px;
+            color:white;
+        }
 
-    margin-bottom:18px;
+        /* LABEL */
+        label{
 
-    border:none;
+            font-weight:500;
+        }
 
-    border-radius:10px;
+        /* INPUT */
+        input{
 
-    outline:none;
+            width:100%;
 
-    font-size:15px;
+            padding:12px;
 
-    transition:0.3s;
-}
+            margin-top:8px;
 
-/* INPUT FOCUS */
-input:focus{
+            margin-bottom:18px;
 
-    transform:scale(1.02);
+            border:none;
 
-    box-shadow:
-    0px 0px 10px #93c5fd;
-}
+            border-radius:10px;
 
-/* RADIO + CHECKBOX */
-input[type="radio"],
-input[type="checkbox"]{
+            outline:none;
 
-    width:auto;
+            font-size:15px;
 
-    margin-right:5px;
-}
+            transition:0.3s;
+        }
 
-/* BUTTON */
-button{
+        /* INPUT FOCUS */
+        input:focus{
 
-    width:100%;
+            transform:scale(1.02);
 
-    padding:14px;
+            box-shadow:
+            0px 0px 10px #93c5fd;
+        }
 
-    border:none;
+        /* RADIO + CHECKBOX */
+        input[type="radio"],
+        input[type="checkbox"]{
 
-    border-radius:12px;
+            width:auto;
 
-    background:
-    linear-gradient(
-        to right,
-        #06b6d4,
-        #2563eb
-    );
+            margin-right:5px;
+        }
 
-    color:white;
+        /* BUTTON */
+        button{
 
-    font-size:16px;
+            width:100%;
 
-    font-weight:600;
+            padding:14px;
 
-    cursor:pointer;
+            border:none;
 
-    transition:0.3s;
-}
+            border-radius:12px;
 
-/* BUTTON HOVER */
-button:hover{
+            background:
+            linear-gradient(
+                to right,
+                #06b6d4,
+                #2563eb
+            );
 
-    transform:translateY(-3px);
+            color:white;
 
-    opacity:0.9;
-}
+            font-size:16px;
 
-/* OUTPUT */
-#output{
+            font-weight:600;
 
-    margin-top:25px;
+            cursor:pointer;
 
-    background:white;
+            transition:0.3s;
+        }
 
-    color:#222;
+        /* BUTTON HOVER */
+        button:hover{
 
-    padding:20px;
+            transform:translateY(-3px);
 
-    border-radius:15px;
+            opacity:0.9;
+        }
 
-    line-height:1.8;
+        /* OUTPUT */
+        #output{
 
-    box-shadow:
-    0px 5px 15px rgba(0,0,0,0.1);
-}
+            margin-top:25px;
 
-/* MOBILE */
-@media(max-width:600px){
+            background:white;
 
-    form{
+            color:#222;
 
-        padding:25px;
-    }
+            padding:20px;
 
-    h2{
+            border-radius:15px;
 
-        font-size:28px;
-    }
+            line-height:1.8;
 
-}
+            box-shadow:
+            0px 5px 15px rgba(0,0,0,0.1);
+        }
 
-</style>
+        /* MOBILE */
+        @media(max-width:600px){
+
+            .form-container{
+
+                padding:25px;
+            }
+
+            h2{
+
+                font-size:28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration Form</h2>
+
+    <!-- FORM -->
+    <form id="myForm"
+          class="form-container">
+
+        <!-- NAME -->
+        <label>Name</label>
+
+        <input type="text"
+               name="name"
+               placeholder="Enter your name">
+
+        <!-- AGE -->
+        <label>Age</label>
+
+        <input type="number"
+               name="age"
+               placeholder="Enter your age">
+
+        <!-- EMAIL -->
+        <label>Email</label>
+
+        <input type="email"
+               name="email"
+               placeholder="Enter your email">
+
+        <!-- PASSWORD -->
+        <label>Password</label>
+
+        <input type="password"
+               name="password"
+               placeholder="Enter your password">
+
+        <!-- PHONE -->
+        <label>Phone</label>
+
+        <input type="tel"
+               name="phone"
+               placeholder="Enter phone number">
+
+        <!-- GENDER -->
+        <label>Gender</label><br><br>
+
+        <input type="radio"
+               name="gender"
+               value="Male">
+
+        Male
+
+        <input type="radio"
+               name="gender"
+               value="Female">
+
+        Female
+
+        <br><br>
+
+        <!-- SKILLS -->
+        <label>Skills</label><br><br>
+
+        <input type="checkbox"
+               name="skills"
+               value="HTML">
+
+        HTML
+
+        <input type="checkbox"
+               name="skills"
+               value="CSS">
+
+        CSS
+
+        <input type="checkbox"
+               name="skills"
+               value="JS">
+
+        JavaScript
+
+        <br><br>
+
+        <!-- DOB -->
+        <label>Date of Birth</label>
+
+        <input type="date"
+               name="dob">
+
+        <!-- BUTTON -->
+        <button type="submit">
+
+            Submit
+
+        </button>
+
+    </form>
+
+    <!-- OUTPUT -->
+    <div id="output"></div>
+
+</div>
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+    let form =
+        document.getElementById("myForm");
+
+    form.addEventListener(
+        "submit",
+        function(event){
+
+        /* STOP RELOAD */
+        event.preventDefault();
+
+        /* GET VALUES */
+        let name =
+            document.getElementsByName("name")[0].value;
+
+        let age =
+            document.getElementsByName("age")[0].value;
+
+        let email =
+            document.getElementsByName("email")[0].value;
+
+        let password =
+            document.getElementsByName("password")[0].value;
+
+        let phone =
+            document.getElementsByName("phone")[0].value;
+
+        let dob =
+            document.getElementsByName("dob")[0].value;
+
+        /* VALIDATION */
+        if(
+            name === "" ||
+            age === "" ||
+            email === "" ||
+            password === "" ||
+            phone === "" ||
+            dob === ""
+        ){
+
+            alert("Please fill all fields");
+
+            return;
+        }
+
+        /* PASSWORD CHECK */
+        if(password.length < 6){
+
+            alert(
+                "Password must be at least 6 characters"
+            );
+
+            return;
+        }
+
+        /* GET GENDER */
+        let gender = "";
+
+        let genders =
+            document.getElementsByName("gender");
+
+        for(
+            let i = 0;
+            i < genders.length;
+            i++
+        ){
+
+            if(genders[i].checked){
+
+                gender =
+                    genders[i].value;
+            }
+
+        }
+
+        /* GET SKILLS */
+        let skills = "";
+
+        let skillList =
+            document.getElementsByName("skills");
+
+        for(
+            let i = 0;
+            i < skillList.length;
+            i++
+        ){
+
+            if(skillList[i].checked){
+
+                skills +=
+                    skillList[i].value + " ";
+            }
+
+        }
+
+        /* OUTPUT */
+        document.getElementById("output")
+            .innerHTML =
+
+            "<h3>Registration Details</h3>" +
+
+            "Name: " + name + "<br>" +
+
+            "Age: " + age + "<br>" +
+
+            "Email: " + email + "<br>" +
+
+            "Phone: " + phone + "<br>" +
+
+            "Gender: " + gender + "<br>" +
+
+            "Skills: " + skills + "<br>" +
+
+            "DOB: " + dob;
+
+        /* RESET FORM */
+        form.reset();
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
 
