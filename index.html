@@ -1,167 +1,192 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Student Registration Form</title>
+<style>
 
-    <style>
-        body {
-            
-    background-color: lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 100vh; /* FIXED */
-    margin: 0;
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-        
 
-        .container {
-            text-align: center;
-        }
+/* BODY */
+body{
 
-        form {
-            background-color: white;
-            padding: 20px;
-            width: 300px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
+    font-family:'Poppins',sans-serif;
 
-        input {
-            padding: 8px;
-            width: 90%;
-        }
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #7c3aed,
+        #ec4899
+    );
 
-        button {
-            background-color: blue;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-        }
+    display:flex;
 
-        button:hover {
-            background-color: darkblue;
-        }
+    justify-content:center;
 
-        #output {
-            margin-top: 20px;
-            background-color: white;
-            padding: 10px;
-            border-radius: 10px;
-        }
-    </style>
-</head>
+    align-items:center;
 
-<body>
+    min-height:100vh;
 
-<div class="container">
+    padding:20px;
+}
 
-    <h2>Student Registration Form</h2>
+/* CONTAINER */
+.container{
 
-    <!-- IMPORTANT: correct ID -->
-    <form id="myForm">
+    width:100%;
 
-        Name:<br>
-        <input type="text" name="name"><br><br>
+    max-width:500px;
 
-        Age:<br>
-        <input type="number" name="age"><br><br>
+    text-align:center;
+}
 
-        Email:<br>
-        <input type="email" name="email"><br><br>
+/* TITLE */
+h2{
 
-        Password:<br>
-        <input type="password" name="password"><br><br>
+    color:white;
 
-        Phone:<br>
-        <input type="tel" name="phone"><br><br>
+    margin-bottom:20px;
 
-        Gender:<br>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female<br><br>
+    font-size:35px;
+}
 
-        Skills:<br>
-        <input type="checkbox" name="skills" value="HTML"> HTML
-        <input type="checkbox" name="skills" value="CSS"> CSS
-        <input type="checkbox" name="skills" value="JS"> JS<br><br>
+/* FORM */
+form{
 
-        Date of Birth:<br>
-        <input type="date" name="dob"><br><br>
+    background:
+    rgba(255,255,255,0.15);
 
-        <button type="submit">Submit</button>
+    backdrop-filter:blur(12px);
 
-    </form>
+    padding:35px;
 
-    <!-- OUTPUT AREA -->
-    <div id="output"></div>
+    border-radius:20px;
 
-</div>
+    box-shadow:
+    0px 8px 25px rgba(0,0,0,0.2);
 
-<script>
+    text-align:left;
 
-document.addEventListener("DOMContentLoaded", function() {
+    color:white;
+}
 
-    let form = document.getElementById("myForm");
+/* LABEL */
+label{
 
-    form.addEventListener("submit", function(event) {
+    font-weight:500;
+}
 
-        event.preventDefault(); // stops page reload
+/* INPUT */
+input{
 
-        // GET VALUES
-        let name = document.getElementsByName("name")[0].value;
-        let email = document.getElementsByName("email")[0].value;
-        let password = document.getElementsByName("password")[0].value;
+    width:100%;
 
-        // VALIDATION
-        if (name === "" || email === "" || password === "") {
-            alert("Please fill all fields");
-            return;
-        }
+    padding:12px;
 
-        if (password.length < 6) {
-            alert("Password must be at least 6 characters");
-            return;
-        }
+    margin-top:8px;
 
-        // GET GENDER
-        let gender = "";
-        let genders = document.getElementsByName("gender");
+    margin-bottom:18px;
 
-        for (let i = 0; i < genders.length; i++) {
-            if (genders[i].checked) {
-                gender = genders[i].value;
-            }
-        }
+    border:none;
 
-        // GET SKILLS
-        let skills = "";
-        let skillList = document.getElementsByName("skills");
+    border-radius:10px;
 
-        for (let i = 0; i < skillList.length; i++) {
-            if (skillList[i].checked) {
-                skills += skillList[i].value + " ";
-            }
-        }
+    outline:none;
 
-        // DISPLAY OUTPUT
-        document.getElementById("output").innerHTML =
-            "<h3>Registration Details</h3>" +
-            "Name: " + name + "<br>" +
-            "Email: " + email + "<br>" +
-            "Gender: " + gender + "<br>" +
-            "Skills: " + skills;
+    font-size:15px;
 
-        // RESET FORM
-        form.reset();
+    transition:0.3s;
+}
 
-    });
+/* INPUT FOCUS */
+input:focus{
 
-});
+    transform:scale(1.02);
 
-</script>
+    box-shadow:
+    0px 0px 10px #93c5fd;
+}
 
-</body>
-</html>
+/* RADIO + CHECKBOX */
+input[type="radio"],
+input[type="checkbox"]{
+
+    width:auto;
+
+    margin-right:5px;
+}
+
+/* BUTTON */
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        to right,
+        #06b6d4,
+        #2563eb
+    );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+/* BUTTON HOVER */
+button:hover{
+
+    transform:translateY(-3px);
+
+    opacity:0.9;
+}
+
+/* OUTPUT */
+#output{
+
+    margin-top:25px;
+
+    background:white;
+
+    color:#222;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    line-height:1.8;
+
+    box-shadow:
+    0px 5px 15px rgba(0,0,0,0.1);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    form{
+
+        padding:25px;
+    }
+
+    h2{
+
+        font-size:28px;
+    }
+
+}
+
+</style>
 
